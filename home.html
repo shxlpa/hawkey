@@ -91,9 +91,8 @@
 <!--Body start-->
 
 <body>
-
 	<section class="">
-		<h1 id="title" class="shadow-sm"> </h1>
+		<h1 style="font-size: 120px" id="title" class="shadow-sm"> </h1>
 
 		<div class="flex-box">
 			<div class="row">
@@ -102,13 +101,6 @@
 						different functionality-->
 					<!--onclick attribute is added to give
 						button a work to do when it is clicked-->
-					<button type="button"
-							onclick="clearText()"
-							class="btn shadow-sm btn-outline-primary side"
-							data-toggle="tooltip"
-							data-placement="top"
-							title="Tooltip on top">
-			Clear Text</button>
 				</div>
 			</div>
 		</div>
@@ -118,9 +110,16 @@
 			</div>
 			<div class="col-md-6 col-sm-9">
 				<div class="flex-box">
-					<input type="text" placeholder="Type Here" id="text" onkeyup="submit(this)" />
+					<input style="font-size: 60px" type="text" placeholder="Type Here" id="text" onkeyup="submit(this)" />
 					<br/><br/>
 					<div id="output"></div>
+					<button type="button"
+							onclick="clearText()"
+							class="btn shadow-sm btn-outline-primary side"
+							data-toggle="tooltip"
+							data-placement="top"
+							title="Tooltip on top">Clear
+					</button>
 				</div>
 			</div>
 			<div class="col-md-3">

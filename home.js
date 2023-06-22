@@ -17,9 +17,8 @@ function clearText() {
 //	https://medium.com/building-a-simple-text-correction-tool/building-a-simple-auto-correction-tool-97d77d458742
 
 const universeOfDiscourse = [
-	"Prabha", "Naan", "Nagaraj",
-	"Spit", "Spoon", "Amma",
-	"Appa"
+	"Prabha", "Naan", "Nagaraj", "Appa",
+	"Spit", "Spoon", "Amma", "Goutham", "Shilpa", "Aditya", "Ditti", "Vijji", "Junior", 
 ];
 
 function getBigram(word) {
@@ -77,10 +76,10 @@ function submit(character) {
 		}
 
 		document.getElementById("text").value = text;
-		// document.getElementById("output").innerHTML = "\n You know: <br/>" + text;
 	}
-	else
+	else {
 		document.getElementById("output").innerHTML = "";
+	}
 
 	char = character.value;
 	words.push(char);
