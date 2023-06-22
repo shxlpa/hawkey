@@ -104,5 +104,4 @@ function submit(character) {
 	char = character.value;
 	words.push(char);
 	document.getElementById("title").textContent = char;
-
 }
