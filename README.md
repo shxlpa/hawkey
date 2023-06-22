@@ -10,4 +10,6 @@ To do list:
 1. Incorporate merriam webster wordlist into dictionary of known words
 2. AI word completion implementation?
 3. Remove delay in presenting words on screen
-4. Make custom keyboard with vibration-based haptic feedback and guardrails on each large key. Currently we're using off-shelf hardware: https://logickeyboard.com/shop/largeprint-black-on-3254p.html
+4. Remove the need for space after autocorrect. Thus, the algorithm needs to iteratively check with each Keyup.
+5. Add newline and expand text box
+6. Make custom keyboard with vibration-based haptic feedback and guardrails on each large key. Currently we're using off-shelf hardware: https://logickeyboard.com/shop/largeprint-black-on-3254p.html
