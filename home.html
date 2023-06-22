@@ -89,10 +89,15 @@
 	<!--Internal CSS End-->
 </head>
 <!--Body start-->
-
+<script>
+function restrictToAlphabets() {
+	var input = document.getElementById("text");
+	input.value = input.value.replace(/[^a-z A-Z]/g, '');
+}
+</script>
 <body>
 	<section class="">
-		<h1 style="font-size: 120px" id="title" class="shadow-sm"> </h1>
+		<textarea style="font-size: 120px" id="title" class="shadow-sm"> </textarea>
 
 		<div class="flex-box">
 			<div class="row">
@@ -110,7 +115,7 @@
 			</div>
 			<div class="col-md-6 col-sm-9">
 				<div class="flex-box">
-					<input style="font-size: 60px" type="text" placeholder="Type Here" id="text" onkeyup="submit(this)" />
+					<input oninput="restrictToAlphabets()" style="font-size: 60px" type="text" placeholder="Type Here" id="text" onkeyup="submit(this)" />
 					<br/><br/>
 					<div id="output"></div>
 					<button type="button"
