@@ -1,6 +1,6 @@
 # Open Source Text Editor for Parkinson's
 
-People with diseases such as Parkinsons have a hard time communicating.
+People with diseases such as Parkinson's have a hard time communicating.
 
 This text editor, when loaded in a browser and paired with an accessible keyboard, will allow a disabled person to type.
 My grandfather can't speak due to Parkinson's, and though he gets occaisonal hand tremors he can control his hand just enough to interface with a keyboard.
