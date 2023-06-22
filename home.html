@@ -24,7 +24,7 @@
 		integrity=
 "sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
 		crossorigin="anonymous" />
-		
+
 	<!--shilpa test-->
 	<!--Internal CSS start-->
 	<style>
@@ -75,6 +75,7 @@
 <body>
 	<section class="">
 		<h1 class="shadow-sm">TEXT EDITOR</h1>
+
 		<div class="flex-box">
 			<div class="row">
 				<div class="col">
@@ -154,13 +155,16 @@
 			</div>
 			<div class="col-md-6 col-sm-9">
 				<div class="flex-box">
-					<textarea id="textarea1"
-							class="input shadow"
-							name="name"
-							rows="15"
-							cols="100"
-							placeholder="Your text here ">
-					</textarea>
+					<input type="text" id="textarea1" />
+					<script>
+						$('#textarea1').keydown(function (e) {
+							var key = e.charCode || e.keyCode || 0;
+							if (key > 46|| key < 58) {
+								event.preventDefault();
+								alert('its a number, do something');
+							}
+						});
+					</script>
 				</div>
 			</div>
 			<div class="col-md-3">
