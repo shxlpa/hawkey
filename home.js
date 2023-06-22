@@ -11,7 +11,7 @@ function clearText() {
 	document.getElementById(area).value = " ";
 	document.getElementById("title").textContent = " ";
 }
-
+// change
 // AUTOCORRECT FUNCTIONALITY
 //  SOURCED FROM:
 //	https://medium.com/building-a-simple-text-correction-tool/building-a-simple-auto-correction-tool-97d77d458742
