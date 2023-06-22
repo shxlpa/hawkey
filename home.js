@@ -19,7 +19,27 @@ function clearText() {
 const universeOfDiscourse = [
 	"Prabha", "Naan", "Nagaraj", "Appa",
 	"Spit", "Spoon", "Amma", "Goutham", "Shilpa", "Aditya", "Ditti", "Vijji", "Junior", 
+	"miriam", "peanut", "jelly", "sandwhich", "milk", "water"
 ];
+
+// Add all known english words
+fetch('https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt')
+	.then(response => response.text())
+	.then(text => {
+    	// Split the text content into an array of lines
+    	const lines = text.split('\n');
+
+    	// Iterate over each line
+    	lines.forEach(line => {
+      		// Process each line as needed
+      		console.log(line);
+			universeOfDiscourse.push(line)
+
+    	});
+  	})
+	.catch(error => {
+    	console.log('Error:', error);
+	});
 
 function getBigram(word) {
 	let result = [];
