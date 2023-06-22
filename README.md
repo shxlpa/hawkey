@@ -7,9 +7,10 @@ My grandfather can't speak due to Parkinson's, and though he gets occaisonal han
 This IDE is a solution to that; with an autocorrect algorithm, he can make type the gist of a word and it will guess his intention. 
 
 To do list:
-1. Incorporate merriam webster wordlist into dictionary of known words
-2. AI word completion implementation?
-3. Remove delay in presenting words on screen
-4. Remove the need for space after autocorrect. Thus, the algorithm needs to iteratively check with each Keyup.
-5. Add newline and expand text box
-6. Make custom keyboard with vibration-based haptic feedback and guardrails on each large key. Currently we're using off-shelf hardware: https://logickeyboard.com/shop/largeprint-black-on-3254p.html
+1. Therapist or loved one should be able to input their own dictionary of words for the patient's common mistakes. In the algorithm, entries adjacent to this list will be prioritized.
+2. Incorporate merriam webster wordlist into dictionary of known words
+3. AI word completion implementation?
+4. Remove delay in presenting words on screen
+5. Remove the need for space after autocorrect. Thus, the algorithm needs to iteratively check with each Keyup.
+6. Add newline and expand text box
+7. Make custom keyboard with vibration-based haptic feedback and guardrails on each large key. Currently we're using off-shelf hardware: https://logickeyboard.com/shop/largeprint-black-on-3254p.html
