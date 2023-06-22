@@ -1,6 +1,50 @@
 var words = [];
 area = "text"
 
+const adjacencyDict = {
+    "q": ["w","a","s","e","1","2"],
+	"w": ["e","r","d","s","a","q","2","3"],
+	"e": ["w","r","q","t","s","d","f","3","4"],
+	"r": ["e","t","w","y","g","d","f","4","5"],
+	"t": ["y","r","e","u","g","h","f","5","6"],
+	"y": ["t","u","r","i","g","h","j","6","7"],
+	"u": ["y","i","t","o","h","j","k","7","8"],
+	"i": [],
+	"o": [],
+	"p": [],
+	"a": [],
+	"s": [],
+	"d": [],
+	"f": [],
+	"g": [],
+	"h": [],
+	"j": [],
+	"k": [],
+	"l": [],
+	"z": [],
+	"x": [],
+	"c": [],
+	"v": [],
+	"b": [],
+	"n": [],
+	"m": [],
+	"1": [],
+	"2": [],
+	"3": [],
+	"4": [],
+	"5": [],
+	"6": [],
+	"7": [],
+	"8": [],
+	"9": [],
+	"0": [],
+};
+
+function allLower(string) {
+	// make ALL user-entered inputs lower case for the purpose of computation
+	return string.toLowerCase()
+}
+
 function clearText() {
 	//function to make the text back to normal by removing all the methods applied
 	//using DOM method
