@@ -3,8 +3,8 @@
 People with diseases such as Parkinson's have a hard time communicating.
 
 This text editor, when loaded in a browser and paired with an accessible keyboard, will allow a disabled person to type.
-My grandfather can't speak due to Parkinson's, and though he gets occaisonal hand tremors he can control his hand just enough to interface with a keyboard.
-This IDE is a solution to that; with an autocorrect algorithm, he can make type the gist of a word and it will guess his intention. 
+My grandfather can't speak due to Parkinson's, and though he gets occasional hand tremors he can control his hand just enough to interface with a keyboard.
+This IDE is a solution to that; with an autocorrect algorithm, he can type the gist of a word and it will guess his intention. 
 
 To do list:
 1. Therapist or loved one should be able to input their own dictionary of words for the patient's common mistakes. In the algorithm, entries adjacent to this list will be prioritized.
