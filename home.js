@@ -51,6 +51,7 @@ function f9() {
 	document.getElementById(area).value = " ";
 }
 
+// TO DO: ingrain this in submit() func so we can save val
 function f10(e) {
 
 	char = e.value;
@@ -64,9 +65,12 @@ function f10(e) {
 // AUTOCORRECT FUNCTIONALITY
 
 //  SOURCED FROM:
+//	https://medium.com/building-a-simple-text-correction-tool/building-a-simple-auto-correction-tool-97d77d458742
 
 const universeOfDiscourse = [
-	"Google", "Alphabet", "Facebook", "Amazon", "Apple", "Microsoft"
+	"Prabha", "Naan", "Nagaraj",
+	"Spit", "Spoon", "Amma",
+	"Appa"
 ];
 
 function getBigram(word) {
@@ -109,7 +113,8 @@ function autoCorrect(word, knownWords=universeOfDiscourse, similarityThreshold=0
 	return maxSimilarity > similarityThreshold ? mostSimilar : word;
 }
 
-function submit() {
+function submit(character) {
+
 	let text = document.getElementById("text").value;
 
 	if (text.length > 0) {
@@ -123,8 +128,13 @@ function submit() {
 		}
 
 		document.getElementById("text").value = text;
-		document.getElementById("output").innerHTML = "You know: <br/>" + text;
+		document.getElementById("output").innerHTML = "\n You know: <br/>" + text;
 	}
 	else
 		document.getElementById("output").innerHTML = "";
+
+	char = character.value;
+	words.push(char);
+	document.getElementById("title").textContent = char;
+
 }
