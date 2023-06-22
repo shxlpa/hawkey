@@ -15,4 +15,4 @@ To do list:
 6. Add newline and expand text box
 7. Make custom keyboard with vibration-based haptic feedback and guardrails on each large key. Currently we're using off-shelf hardware: https://logickeyboard.com/shop/largeprint-black-on-3254p.html
 
-Note - there are solutions out there (https://www.lightkey.io/people-with-disabilities-feature), but they're all behind a paywall. We want to open source it.
+Note - there are solutions out there (https://www.lightkey.io/people-with-disabilities-feature), but they're all behind a paywall. We want to open source it, and make it easily customizable to each patient.
