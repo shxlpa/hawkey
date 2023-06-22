@@ -1,3 +1,5 @@
+var words = [];
+
 function f1() {
 	//function to make the text bold using DOM method
 	document.getElementById("textarea1").style.fontWeight = "bold";
@@ -48,3 +50,19 @@ function f9() {
 	document.getElementById("textarea1").value = " ";
 }
 
+function f10(e) {
+	// event.preventDefault();
+	// alert(e.value);
+	char = e.value;
+	words.push(char);
+	document.getElementById("title").textContent = char;
+	// alert(words) // alerts are such an annoying way to debug
+}
+
+// $('#textarea1').keydown(function (e) {
+//     var key = e.charCode || e.keyCode || 0;
+//     if (key > 46|| key < 58) {
+//         event.preventDefault();
+//         alert('its a number, do something');
+//     }
+// });

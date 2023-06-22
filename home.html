@@ -74,7 +74,7 @@
 
 <body>
 	<section class="">
-		<h1 class="shadow-sm">TEXT EDITOR</h1>
+		<h1 id="title" class="shadow-sm"> </h1>
 
 		<div class="flex-box">
 			<div class="row">
@@ -155,16 +155,7 @@
 			</div>
 			<div class="col-md-6 col-sm-9">
 				<div class="flex-box">
-					<input type="text" id="textarea1" />
-					<script>
-						$('#textarea1').keydown(function (e) {
-							var key = e.charCode || e.keyCode || 0;
-							if (key > 46|| key < 58) {
-								event.preventDefault();
-								alert('its a number, do something');
-							}
-						});
-					</script>
+					<input type="text" id="foo" value="bar" onkeyup = "f10(this)" />
 				</div>
 			</div>
 			<div class="col-md-3">
