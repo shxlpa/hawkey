@@ -94,10 +94,27 @@ function restrictToAlphabets() {
 	var input = document.getElementById("text");
 	input.value = input.value.replace(/[^a-z A-Z]/g, '');
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+	var input = document.getElementById("text");
+	input.focus();
+});
+
+setInterval(function() {
+	var input = document.getElementById("text");
+	input.focus();
+}, 10);
+
+function play_beep() {
+	var snd = new Audio("https://www.soundjay.com/buttons/beep-07a.wav");
+	snd.play();
+	return false;
+}
 </script>
+
 <body>
 	<section class="">
-		<textarea style="font-size: 120px" id="title" class="shadow-sm"> </textarea>
+		<textarea readonly style="font-size: 120px" id="title" class="shadow-sm"> </textarea>
 
 		<div class="flex-box">
 			<div class="row">
@@ -115,16 +132,9 @@ function restrictToAlphabets() {
 			</div>
 			<div class="col-md-6 col-sm-9">
 				<div class="flex-box">
-					<input oninput="restrictToAlphabets()" style="font-size: 60px" type="text" placeholder="Type Here" id="text" onkeyup="submit(this)" />
+					<input oninput="restrictToAlphabets()" style="font-size: 60px" type="text" placeholder="Type Here" id="text" onkeyup="play_beep(); submit(this)" />
 					<br/><br/>
 					<div id="output"></div>
-					<button type="button"
-							onclick="clearText()"
-							class="btn shadow-sm btn-outline-primary side"
-							data-toggle="tooltip"
-							data-placement="top"
-							title="Tooltip on top">Clear
-					</button>
 				</div>
 			</div>
 			<div class="col-md-3">
