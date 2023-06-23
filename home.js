@@ -127,7 +127,6 @@ function autoCorrect(word, knownWords=universeOfDiscourse, similarityThreshold=0
 }
 
 function submit(character) {
-
 	let text = document.getElementById("text").value;
 
 	if (text.length > 0) {
@@ -138,6 +137,7 @@ function submit(character) {
 			const lastWord = text[text.length - 2];
 			text[text.length - 2] = autoCorrect(lastWord);
 			text = text.join(" ");
+            responsiveVoice.speak(text);
 		}
 
 		document.getElementById("text").value = text;
