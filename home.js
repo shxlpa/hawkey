@@ -149,4 +149,34 @@ function submit(character) {
 	char = character.value;
 	words.push(char);
 	document.getElementById("title").textContent = char;
+
+}
+
+function score(string) {
+	// given erroneous user input, return the most likely string
+	// scoredString MUST be in the universeOfDiscourse 
+	scoredString = string
+	return scoredString
+}
+
+function wordDetected(string) {
+
+	//  call this function on each keystroke 
+	//  check string against wordlist (universeOfDiscourse)
+	//  if over 4 letters, it’s more likely to be complete 
+	//	want to avoid false positives like “to”, “the” 
+	//	in case Appa *did* intend “to”, we can do a timing interrupt 
+
+	// the code will guess the intended string. 
+	// it must be in the universeOfDiscource array.
+	scoredString = score(string) 
+
+	// make this work for variations on the string
+		// we want to guess at different inputs
+	if (universeOfDiscourse.includes(scoredString)) {
+		if (string.length >= 4) {
+
+		}
+
+	}
 }
