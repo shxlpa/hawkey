@@ -126,6 +126,49 @@ function autoCorrect(word, knownWords=universeOfDiscourse, similarityThreshold=0
 	return maxSimilarity > similarityThreshold ? mostSimilar : word;
 }
 
+function score(string) {
+	// given erroneous user input, return the most likely string
+	// scoredString MUST be in the universeOfDiscourse 
+	// still need to write functionality 
+	scoredString = string
+	return scoredString
+}
+
+function wordDetected(string) {
+
+	if (string.length >= 3) {
+
+		//  call this function on each keystroke 
+		//  check string against wordlist (universeOfDiscourse)
+		//  if over 4 letters, it’s more likely to be complete 
+		//	want to avoid false positives like “to”, “the” -> do this by
+				// looking at the next letter
+		//	in case Appa *did* intend “to”, we can do a timing interrupt 
+
+		// the code will guess the intended string. 
+		// it must be in the universeOfDiscource array.
+		scoredString = score(string) 
+
+		// make this work for variations on the string
+			// we want to guess at different inputs
+				// 6/22/23: autocorrect functionality isn't working right now
+		if (universeOfDiscourse.includes(scoredString)) {
+			if (string.length >= 4) {
+				// we've detected a word
+				return scoredString + " "
+			} else {
+				return string
+			}
+	
+		} else {
+			return string
+		}
+
+	} else {
+		return string
+	}
+}
+
 function submit(character) {
 	let text = document.getElementById("text").value;
 
@@ -140,43 +183,19 @@ function submit(character) {
             responsiveVoice.speak(text);
 		}
 
-		document.getElementById("text").value = text;
+		// this is where the score & wordDetected functions go
+		scoredString = wordDetected(text)
+
+		document.getElementById("text").value = scoredString;
 	}
 	else {
 		document.getElementById("output").innerHTML = "";
 	}
 
-	char = character.value;
-	words.push(char);
-	document.getElementById("title").textContent = char;
+	// // update the title
+	// char = character.value;
+	// words.push(char);
+	document.getElementById("title").textContent = scoredString;
 
 }
 
-function score(string) {
-	// given erroneous user input, return the most likely string
-	// scoredString MUST be in the universeOfDiscourse 
-	scoredString = string
-	return scoredString
-}
-
-function wordDetected(string) {
-
-	//  call this function on each keystroke 
-	//  check string against wordlist (universeOfDiscourse)
-	//  if over 4 letters, it’s more likely to be complete 
-	//	want to avoid false positives like “to”, “the” 
-	//	in case Appa *did* intend “to”, we can do a timing interrupt 
-
-	// the code will guess the intended string. 
-	// it must be in the universeOfDiscource array.
-	scoredString = score(string) 
-
-	// make this work for variations on the string
-		// we want to guess at different inputs
-	if (universeOfDiscourse.includes(scoredString)) {
-		if (string.length >= 4) {
-
-		}
-
-	}
-}
