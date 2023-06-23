@@ -130,6 +130,21 @@ function score(string) {
 	// given erroneous user input, return the most likely string
 	// scoredString MUST be in the universeOfDiscourse 
 	// still need to write functionality 
+
+	// generate neighboring strings. call autocorrect.
+
+	neighborhood = []
+	// find all neighboring strings to user input, put in neighborhood array
+
+	// return most likely string: 
+		// for each string, at each position, 
+			// if the user input contains a neighbor (check adjacencyDict)
+				// then it's scored higher
+
+
+	// ORRRRRR
+	// use chatGPT API to ask what this is
+
 	scoredString = string
 	return scoredString
 }
