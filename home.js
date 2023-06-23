@@ -143,7 +143,7 @@ function score(string) {
 
 
 	// ORRRRRR
-	// use chatGPT API to ask what this is
+	// use chatGPT API to ask what word the user meant
 
 	scoredString = string
 	return scoredString
