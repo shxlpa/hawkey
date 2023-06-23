@@ -149,6 +149,7 @@ function score(string) {
 	return scoredString
 }
 
+count = 1 // reset after word detected
 function wordDetected(string) {
 
 	if (string.length >= 3) {
@@ -168,15 +169,22 @@ function wordDetected(string) {
 			// we want to guess at different inputs
 				// 6/22/23: autocorrect functionality isn't working right now
 		if (universeOfDiscourse.includes(scoredString)) {
-			if (string.length >= 4) {
+			if (string.length >= 4 & count == 1) {
 				// we've detected a word
 				return scoredString + " "
+				count = 0
 			} else {
 				return string
 			}
 	
 		} else {
-			return string
+			if (string.length >= 4 & count == 1) {
+				// we've detected a word
+				return string + " "
+				count = 0
+			} else {
+				return string
+			}
 		}
 
 	} else {
