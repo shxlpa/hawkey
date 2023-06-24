@@ -209,7 +209,7 @@ function submit(character) {
 		// this is where the score & wordDetected functions go
 		scoredString = wordDetected(text)
 
-		document.getElementById("text").value = scoredString;
+		document.getElementById("text").value = text;
 	}
 	else {
 		document.getElementById("output").innerHTML = "";
@@ -218,7 +218,7 @@ function submit(character) {
 	// // update the title
 	// char = character.value;
 	// words.push(char);
-	document.getElementById("title").textContent = scoredString;
+	document.getElementById("title").textContent = text;
 
 }
 
