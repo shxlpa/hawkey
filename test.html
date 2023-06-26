@@ -1,0 +1,11 @@
+Hello2
+<input type="text" id="textarea1" />
+<button onclick="convertTextToSpeech()">Convert to Speech</button>
+
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script>
+  function convertTextToSpeech() {
+    var text = 'Hello, world!';
+    responsiveVoice.speak(text);
+  }
+</script>
