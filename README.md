@@ -19,7 +19,7 @@ To do list:
 There are solutions out there (https://www.lightkey.io/people-with-disabilities-feature), but they're all behind a paywall and assume nearly perfect typing. We want to open source it, and make it easily customizable to each patient.
 
 The specific problem we're solving: 
-1. Hand tremors causing adjacent keys to be hit
+1. Hand tremors cause adjacent keys to be hit. Our algorithm is designed with these specific errors in mind.
 2. Custom dictionary input to the application to each patient
 3. Repetitive key presses when patient cannot control their hand pressure or lift up fast enough
 4. Relieving the grammatical burden from the patient by predicting where a space or newline is necessary 
