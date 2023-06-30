@@ -61,13 +61,14 @@ function clearText() {
 //  SOURCED FROM:
 //	https://medium.com/building-a-simple-text-correction-tool/building-a-simple-auto-correction-tool-97d77d458742
 
+// Our global dictionary:
 const universeOfDiscourse = [
 	"Prabha", "Naan", "Nagaraj", "Appa",
 	"Spit", "Spoon", "Amma", "Goutham", "Shilpa", "Aditya", "Ditti", "Vijji", "Junior", 
-	"miriam", "peanut", "jelly", "sandwhich", "milk", "water"
+	"miriam", "peanut", "jelly", "sandwich", "milk", "water", "button"
 ];
 
-// Add all known english words
+// Add all known english words to universeOfDiscourse variable
 fetch('https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt')
 	.then(response => response.text())
 	.then(text => {
@@ -155,14 +156,17 @@ function wordDetected(string) {
 	if (string.length >= 3) {
 
 		//  call this function on each keystroke 
-		//  check string against wordlist (universeOfDiscourse)
+		//  check string and its neighbors against wordlist (universeOfDiscourse)
 		//  if over 4 letters, it’s more likely to be complete 
 		//	want to avoid false positives like “to”, “the” -> do this by
 				// looking at the next letter
 		//	in case Appa *did* intend “to”, we can do a timing interrupt 
 
-		// the code will guess the intended string. 
-		// it must be in the universeOfDiscource array.
+		// ALGORITHM:
+			// call autocorrect func on everything. see if it returns a word. (did it AC? then return bool = true)
+				// if AC function will return bool = true on current string, then we've detected a word
+				// this alg would mean we can't have stem words and longer words. only stem words.
+
 		scoredString = score(string) 
 
 		// make this work for variations on the string
@@ -183,13 +187,14 @@ function wordDetected(string) {
 				return string + " "
 				count = 0
 			} else {
-				return string
+				return string, true
 			}
 		}
 
 	} else {
-		return string
+		return string, true
 	}
+
 }
 
 function submit(character) {
@@ -197,8 +202,8 @@ function submit(character) {
 
 	if (text.length > 0) {
 		const lastChar = text[text.length - 1];
-		
-		if (lastChar === " ") {
+		string, bool = wordDetected(text) // we need to be able to detect a word for this to work..
+		if (bool) { 
 			text = text.split(" ");
 			const lastWord = text[text.length - 2];
 			text[text.length - 2] = autoCorrect(lastWord);
@@ -221,4 +226,3 @@ function submit(character) {
 	document.getElementById("title").textContent = text;
 
 }
-
