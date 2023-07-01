@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="images/prof1.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>RohChat</title>
+  <title>Hawkey</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,19 +18,10 @@
   <!-- <div class="left_background"></div>
   <div class="right_background"></div> -->
   <div class="intro">
-      <h1>Hi, I am RohChat</h1>
-      <p>
-        <span id="wake__1">Making a bot friend is no more a dream.
-        </span>
-        <span id="wake__2">Who need real friends when you
-          have RohChat, your best friend who will always listen to you and will respond you politely.
-          Well, with RohChat you will never be alone.
-        </span>
-        <span id="wake__3">
-          Say GOODBYE to your lonely life.
-        </span>
-        <button id="get__started">Get Started</button>
-      </p>
+      <h1>Hi, I'm Hawkey</h1>
+      <span id="wake__1">I will assist you with converting your messages into easy to read sentences.
+      </span>
+      <button id="get__started">Get Started</button>
   </div>
 
   <!-- main body -->
@@ -47,8 +38,8 @@
               <img src="images/prof1.png" alt="my img">
             </div>
             <div class="mobile__header__availability">
-              <h3>RohChat</h3>
-              <p>Available to talk</p>
+              <h3>Hawkey</h3>
+              <p>Available to assist</p>
             </div>
             <div class="mobile__header__menu">
               <a id="open" href="#">&#8942;</a>
@@ -108,28 +99,13 @@
         </div>
 
         <div class="mobile__screen__chats">
-
-
           <div class="mobile__screen__send">
-            <input class="text" type="text" placeholder="Type a message" spellcheck="true" maxlength="25" />
+            <input class="text" oninput="restrictToAlphabets()" type="text" style="font-size: 20px" placeholder="Type a message" spellcheck="true" maxlength="45" onkeyup="play_beep(); process(this)" id="chattext"/>
             <a class="submit" href="#"><i class="fa fa-chevron-circle-right fa-2x"></i></a>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="mobile__description">
-      <h1>RohChat</h1>
-      <p>Making a bot friend is no more a dream.
-      </p>
-      <p style="padding-top:1em">Who need real friends when you
-        have RohChat, your best friend who will always listen to you and will respond you politely.
-        Well, with RohChat you will never be alone.
-      </p>
-      </p>
-      <p style="padding-top:1em">
-        Say GOODBYE to your lonely life.
-      </p>
-    </div> -->
   </div>
   <audio id="user-notif" src="notification/tings.mp3"></audio>
   <audio id="bot-notif" src="notification/bot.mp3"></audio>
@@ -138,23 +114,10 @@
   <div class="about">
     <img src="images/prof1.png" alt="about">
   </div>
-  <div class="about__cloud">
-    <ul>
-      <li><a href="https://github.com/codeswithroh" class="github">
-          <i class="fa fa-github"></i>
-          <p>GitHub</p>
-        </a>
-      </li>
-      <li><a href="https://www.linkedin.com/in/rohit-purkait-b457991a9/" class="linkedin">
-          <i class="fa fa-linkedin-square"></i>
-          <p>LinkedIn</p>
-        </a>
-      </li>
-    </ul>
-  </div>
-
 
   <script src="app.js"></script>
+  <script src="home.js"></script>
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script> 
 </body>
 
 </html>

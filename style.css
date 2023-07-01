@@ -38,7 +38,7 @@ body {
     font-family: 'Rubik', sans-serif;
     cursor: pointer;
     transform: rotateX(90deg);
-    animation: wakeup 1s linear forwards 3s;
+    animation: wakeup 500ms linear forwards 500ms;
 }
 
 #get__started:hover {
@@ -47,20 +47,20 @@ body {
 }
 
 .fade__intro {
-    animation: fade 3s linear forwards;
+    animation: fade 1s linear forwards;
 }
 
 #wake__1 {
     transform: rotateX(90deg);
-    animation: wakeup 1s linear forwards 1s;
+    animation: wakeup 500ms linear forwards 500ms;
 }
 #wake__2 {
     transform: rotateX(90deg);
-    animation: wakeup 1s linear forwards 1.5s;
+    animation: wakeup 500ms linear forwards 500ms;
 }
 #wake__3 {
     transform: rotateX(90deg);
-    animation: wakeup 1s linear forwards 2s;
+    animation: wakeup 500ms linear forwards 500ms;
 }
 
 
@@ -193,8 +193,8 @@ body {
 } */
 
 .mobile__layout {
-    width: 18em;
-    height: 35em;
+    width: 64em;
+    height: 38em;
     background: white;
     border-radius: 30px;
     /* margin-right: 10em; */
@@ -208,8 +208,8 @@ body {
 }
 
 .mobile__screen {
-    width: 16em;
-    height: 33em;
+    width: 64em;
+    height: 38em;
     background: hsl(268, 21%, 88%);
     border-radius: 20px;
     position: relative;
@@ -229,7 +229,7 @@ body {
 }
 
 .mobile__header {
-    width: 16em;
+    width: 64em;
     height: 5em;
     background: linear-gradient(91deg, hsl(264, 100%, 61%), hsl(293, 100%, 63%));;
     border-top-left-radius: 20px;
@@ -284,10 +284,10 @@ body {
 }
 
 .mobile__header__menu a {
-        text-decoration: none;
-        color: white;
-        font-size:1.5rem;
-        font-weight: bold;
+    text-decoration: none;
+    color: white;
+    font-size:1.5rem;
+    font-weight: bold;
 }
 
 .chats {
@@ -304,8 +304,6 @@ body {
     margin:1em;
 }
 
-
-
 .mobile__screen__chats__right {
     background: white;
     color: hsl(271, 15%, 43%);
@@ -321,11 +319,14 @@ input {
     outline: none;
     border:none;
     height:3em;
-    width:17em;
+    width:33em;
     border-radius: 100px;
-    margin-left:1em;
+    margin-left:10em;
+    margin-right:10em;
     background: white;
     position: absolute;
+    padding-left: 1em;
+    padding-right: 1em;
     bottom: 1em;
     left:0;
     right:0;

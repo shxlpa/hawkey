@@ -77,9 +77,8 @@ fetch('https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d
     	// Iterate over each line
     	lines.forEach(line => {
       		// Process each line as needed
-      		console.log(line);
-			universeOfDiscourse.push(line)
-
+            // XXX TODO disable
+			// universeOfDiscourse.push(line)
     	});
   	})
 	.catch(error => {
@@ -192,33 +191,54 @@ function wordDetected(string) {
 	}
 }
 
-function submit(character) {
-	let text = document.getElementById("text").value;
+// Process the words using an auto correct algorithm
+function processDeprecated(element) {
+	let text = document.getElementById("chattext").value;
 
-	if (text.length > 0) {
-		const lastChar = text[text.length - 1];
-		
-		if (lastChar === " ") {
-			text = text.split(" ");
-			const lastWord = text[text.length - 2];
-			text[text.length - 2] = autoCorrect(lastWord);
-			text = text.join(" ");
+   	if (text.length > 0) {
+   		const lastChar = text[text.length - 1];
+
+  		if (lastChar === " ") {
+   			text = text.split(" ");
+   			const lastWord = text[text.length - 2];
+   			text[text.length - 2] = autoCorrect(lastWord);
+   			text = text.join(" ");
             responsiveVoice.speak(text);
-		}
+	    }
 
 		// this is where the score & wordDetected functions go
 		scoredString = wordDetected(text)
 
-		document.getElementById("text").value = text;
+		document.getElementById("chattext").value = text;
 	}
 	else {
-		document.getElementById("output").innerHTML = "";
-	}
+		    document.getElementById("output").innerHTML = "";
+    }
 
-	// // update the title
-	// char = character.value;
-	// words.push(char);
+	// update the title
+	char = character.value;
+	words.push(char);
 	document.getElementById("title").textContent = text;
+}
 
+// Process the words using a combination of known words auto correct and OpenAI
+function process(element) {
+	let text = document.getElementById("chattext").value;
+
+   	if (text.length > 0) {
+   		const lastChar = text[text.length - 1];
+
+  		if (lastChar === " ") {
+   			text = text.split(" ");
+   			const lastWord = text[text.length - 2];
+   			text[text.length - 2] = autoCorrect(lastWord);
+   			text = text.join(" ");
+	    }
+
+		// this is where the score & wordDetected functions go
+		scoredString = wordDetected(text)
+
+		document.getElementById("chattext").value = text;
+	}
 }
 

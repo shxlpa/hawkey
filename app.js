@@ -1,3 +1,29 @@
+
+// --> from old home
+
+function restrictToAlphabets() {
+	var input = document.getElementById("chattext");
+	input.value = input.value.replace(/[^a-z A-Z]/g, '');
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+	var input = document.getElementById("chattext");
+	input.focus();
+});
+
+setInterval(function() {
+	var input = document.getElementById("chattext");
+	input.focus();
+}, 10);
+
+function play_beep() {
+	var snd = new Audio("https://www.soundjay.com/buttons/beep-07a.wav");
+	snd.play();
+	return false;
+}
+
+// <-- end old home
+
 const submit= document.querySelector('.submit');
 const text=document.querySelector('.text');
 var count=0;
@@ -32,8 +58,39 @@ text.addEventListener('keydown', function(e) {
     }
 })
 
-function output(input) {
+const apiKey = 'REDACTED';
 
+// Function to make the API call
+async function createCompletion(input, inprompt) {
+  inprompt = "auto correct " + inprompt
+  console.log(inprompt)
+  const response = await fetch('https://api.openai.com/v1/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      prompt: inprompt,
+      max_tokens: 100,
+	  model: 'text-davinci-003',
+	  temperature: 0.5
+    })
+  });
+
+  const data = await response.json();
+  retval = data.choices[0].text.trim();
+  console.log(retval);
+
+  // update DOM
+  product = retval
+  create__chat(input, product);
+  responsiveVoice.speak(product);
+  return retval;
+}
+
+// Use OpenAI to translate the text
+function output(input) {
     // removing all the characters except word, digits and spaces
     let text = input.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?']/g,"").replace(/^\s+|\s+$/g, "").replace(/\s+/g, " ");
 
@@ -50,20 +107,16 @@ function output(input) {
         .replace(/so/,"")
         .replace(/so /,"");
 
-    if (compare(trigger, reply, text)) {
-        product = compare(trigger, reply, text);
-    } else if (text.match(/robot/gi)) {
-        product = robot[Math.floor(Math.random() * robot.length)];
-    } else {
-        product = alternative[Math.floor(Math.random() * alternative.length)];
-    }
+	// Convert text to something legible using OpenAI
 
-    // update DOM
-    create__chat(input, product);
-
-    // todo:make the bot speak
+    try {
+    	const completion = createCompletion(input,text);
+    	console.log(completion);
+		product = completion
+  	} catch (error) {
+    	console.error('Error:', error);
+  	}
 }
-
 
 const mobile__screen= document.querySelector('.mobile__screen__chats');
 
@@ -73,7 +126,7 @@ function create__chat(input,product) {
     user__chat.id="user";
     user__chat.innerHTML=input;
     // setting up dynamic width
-    user__chat.style.width=((input.length + 1) * 8) + 'px';
+    user__chat.style.width=((input.length + 2) * 8) + 'px';
     mobile__screen.appendChild(user__chat);
 
     let bot__chat= document.createElement('div');
@@ -82,11 +135,10 @@ function create__chat(input,product) {
     bot__chat.innerHTML=product;
     // todo: change the width according to the input
     // setting up dynamic width
-    bot__chat.style.width=((product.length + 1) * 8) + 'px';
+    bot__chat.style.width=((product.length + 2) * 8) + 'px';
 
     // setting a delay for the bot reply
     setTimeout(bot_reply,1000);
-   
 }
 
 function bot_reply() {
@@ -98,9 +150,8 @@ function bot_reply() {
     bot__chat.innerHTML=product;
     // todo: change the width according to the input
     // setting up dynamic width
-    bot__chat.style.width=((product.length + 1) * 8) + 'px';
+    bot__chat.style.width=((product.length + 2) * 8) + 'px';
     mobile__screen.appendChild(bot__chat);
-    
 }
 
 // clears the chat area after four chats
