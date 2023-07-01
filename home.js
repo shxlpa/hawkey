@@ -61,14 +61,13 @@ function clearText() {
 //  SOURCED FROM:
 //	https://medium.com/building-a-simple-text-correction-tool/building-a-simple-auto-correction-tool-97d77d458742
 
-// Our global dictionary:
 const universeOfDiscourse = [
 	"Prabha", "Naan", "Nagaraj", "Appa",
 	"Spit", "Spoon", "Amma", "Goutham", "Shilpa", "Aditya", "Ditti", "Vijji", "Junior", 
-	"miriam", "peanut", "jelly", "sandwich", "milk", "water", "button"
+	"miriam", "peanut", "jelly", "sandwhich", "milk", "water"
 ];
 
-// Add all known english words to universeOfDiscourse variable
+// Add all known english words
 fetch('https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt')
 	.then(response => response.text())
 	.then(text => {
@@ -78,9 +77,8 @@ fetch('https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d
     	// Iterate over each line
     	lines.forEach(line => {
       		// Process each line as needed
-      		console.log(line);
-			universeOfDiscourse.push(line)
-
+            // XXX TODO disable
+			// universeOfDiscourse.push(line)
     	});
   	})
 	.catch(error => {
@@ -156,17 +154,14 @@ function wordDetected(string) {
 	if (string.length >= 3) {
 
 		//  call this function on each keystroke 
-		//  check string and its neighbors against wordlist (universeOfDiscourse)
+		//  check string against wordlist (universeOfDiscourse)
 		//  if over 4 letters, it’s more likely to be complete 
 		//	want to avoid false positives like “to”, “the” -> do this by
 				// looking at the next letter
 		//	in case Appa *did* intend “to”, we can do a timing interrupt 
 
-		// ALGORITHM:
-			// call autocorrect func on everything. see if it returns a word. (did it AC? then return bool = true)
-				// if AC function will return bool = true on current string, then we've detected a word
-				// this alg would mean we can't have stem words and longer words. only stem words.
-
+		// the code will guess the intended string. 
+		// it must be in the universeOfDiscource array.
 		scoredString = score(string) 
 
 		// make this work for variations on the string
@@ -187,42 +182,63 @@ function wordDetected(string) {
 				return string + " "
 				count = 0
 			} else {
-				return string, true
+				return string
 			}
 		}
 
 	} else {
-		return string, true
+		return string
 	}
-
 }
 
-function submit(character) {
-	let text = document.getElementById("text").value;
+// Process the words using an auto correct algorithm
+function processDeprecated(element) {
+	let text = document.getElementById("chattext").value;
 
-	if (text.length > 0) {
-		const lastChar = text[text.length - 1];
-		string, bool = wordDetected(text) // we need to be able to detect a word for this to work..
-		if (bool) { 
-			text = text.split(" ");
-			const lastWord = text[text.length - 2];
-			text[text.length - 2] = autoCorrect(lastWord);
-			text = text.join(" ");
+   	if (text.length > 0) {
+   		const lastChar = text[text.length - 1];
+
+  		if (lastChar === " ") {
+   			text = text.split(" ");
+   			const lastWord = text[text.length - 2];
+   			text[text.length - 2] = autoCorrect(lastWord);
+   			text = text.join(" ");
             responsiveVoice.speak(text);
-		}
+	    }
 
 		// this is where the score & wordDetected functions go
 		scoredString = wordDetected(text)
 
-		document.getElementById("text").value = text;
+		document.getElementById("chattext").value = text;
 	}
 	else {
-		document.getElementById("output").innerHTML = "";
-	}
+		    document.getElementById("output").innerHTML = "";
+    }
 
-	// // update the title
-	// char = character.value;
-	// words.push(char);
+	// update the title
+	char = character.value;
+	words.push(char);
 	document.getElementById("title").textContent = text;
-
 }
+
+// Process the words using a combination of known words auto correct and OpenAI
+function process(element) {
+	let text = document.getElementById("chattext").value;
+
+   	if (text.length > 0) {
+   		const lastChar = text[text.length - 1];
+
+  		if (lastChar === " ") {
+   			text = text.split(" ");
+   			const lastWord = text[text.length - 2];
+   			text[text.length - 2] = autoCorrect(lastWord);
+   			text = text.join(" ");
+	    }
+
+		// this is where the score & wordDetected functions go
+		scoredString = wordDetected(text)
+
+		document.getElementById("chattext").value = text;
+	}
+}
+
