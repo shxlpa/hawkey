@@ -162,6 +162,12 @@ function wordDetected(string) {
 
 		// the code will guess the intended string. 
 		// it must be in the universeOfDiscource array.
+
+		// ALGORITHM:
+			// call autocorrect func on everything. see if it returns a word. (did it AC? then return bool = true)
+				// if AC function will return bool = true on current string, then we've detected a word
+				// this alg would mean we can't have stem words and longer words. only stem words.
+		
 		scoredString = score(string) 
 
 		// make this work for variations on the string
