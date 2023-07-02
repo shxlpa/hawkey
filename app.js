@@ -58,7 +58,7 @@ text.addEventListener('keydown', function(e) {
     }
 })
 
-const apiKey = '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';
+const apiKey = 'REDACTED';
 
 // Function to make the API call
 async function createCompletion(input, inprompt) {
