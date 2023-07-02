@@ -148,7 +148,7 @@ function score(string) {
 	return scoredString
 }
 
-count = 1 // reset after word detected
+count = 1 // reset after word detected 
 function wordDetected(string) {
 
 	if (string.length >= 3) {

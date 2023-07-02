@@ -5,7 +5,10 @@
 
 # The below code is from https://towardsdatascience.com/tensorflow-and-transformers-df6fceaf57cc
 # to be edited and turned into word detection
-# test
+
+# first step: get it working on my emails. 
+# build a relationship between words. what do i write the most often?
+
 import tensorflow as tf
 from transformers import TFAutoModel, AutoTokenizer
 import pandas as pd
